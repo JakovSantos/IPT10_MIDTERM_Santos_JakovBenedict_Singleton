@@ -1,0 +1,7 @@
+{
+    "name": "jakov/fileflow-pattern-lab",
+    "autoload": {
+        "psr-4": { "FileFlow\\": "src/" }
+    },
+    "require": { "php": ">=8.1" }
+}

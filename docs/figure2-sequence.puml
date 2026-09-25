@@ -1,0 +1,18 @@
+@startuml
+participant ExportCommand
+participant AppSettings
+participant "TxtExporter/\nJsonExporter" as Exporter
+
+ExportCommand -> AppSettings : getInstance()
+note right of AppSettings
+  if instance is null,
+  create and cache it
+end note
+AppSettings --> ExportCommand : return $instance
+
+ExportCommand -> AppSettings : get('output_dir')
+AppSettings --> ExportCommand : return config value
+
+ExportCommand -> Exporter : export($data)
+Exporter --> ExportCommand : return file path
+@enduml
